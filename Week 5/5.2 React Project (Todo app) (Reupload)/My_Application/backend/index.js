@@ -5,8 +5,10 @@ const express = require("express");
 const app = express();
 const {todo} = require("./db");
 const { createTodo ,updateTodo} = require("./types");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 // body{
 //  title:String,
@@ -26,11 +28,11 @@ app.post("/todo",async function(req,res){
         return;
     }
 
-    await todo.create({
-        title:createPayload.title,
-        description:createPayload.description,
-        completed:false
-    })
+    // await todo.create({
+    //     title:createPayload.title,
+    //     description:createPayload.description,
+    //     completed:false
+    // })
     res.json({
         msg:"Todo created"
     })
@@ -40,7 +42,7 @@ app.get("/todos",async function(req,res){
     const todos = await todo.find({});
 
     res.json({
-        todos
+        todos: []
     })
 })
 

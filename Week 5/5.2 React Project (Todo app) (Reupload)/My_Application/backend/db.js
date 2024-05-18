@@ -6,12 +6,15 @@ const mongoose = require("mongoose");
 //     completed:boolean,
 // }
 
-mongoose.connect("mongodb+srv://paras:paras1234@paras-database.lg2omsu.mongodb.net/todo-apps");
+mongoose.connect("my_mongo_link");
 
 const todoSchema  = new mongoose.Schema({
     title:String,
     description:String,
-    completed:Boolean
+    completed:{
+        type:Boolean,
+        default:false
+    }
 })
 
 const todo = mongoose.model('todos',todoSchema);
