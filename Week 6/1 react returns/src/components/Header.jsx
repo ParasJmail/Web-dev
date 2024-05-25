@@ -8,11 +8,13 @@
 //     )
 // }
 
-export function Header(props){
+export const Header = React.memo(function (props){
   return(
     <div>
       {props.title}
     </div>
   )
-}
+})
+
+
 
