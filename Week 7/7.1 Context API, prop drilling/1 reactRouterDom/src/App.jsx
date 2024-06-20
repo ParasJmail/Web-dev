@@ -1,25 +1,20 @@
 import { useState } from 'react';
 import './App.css';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom';
 import { Dashboard } from './components/Dashboard';
 import { Landing } from './components/Landing';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
       <div>
-        <div>
-          <button onClick={() => {
-            window.location.href = '/dashboard'
-          }}>Landing Page</button>
-          <button onClick={() => {
-            window.location.href = '/landing'
-          }}>Dashboard Page</button>
-        </div>
+        
 
         <BrowserRouter>
+          <Appbar />
+
           <Routes>
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/landing' element={<Landing />} />
@@ -27,6 +22,21 @@ function App() {
         </BrowserRouter>
       </div>
     </>
+  )
+}
+
+function Appbar(){
+
+  const navigate = useNavigate();
+  return  (
+    <div>
+      <button onClick={() => {
+        navigate('/landing')
+      }}>Landing Page</button>
+      <button onClick={() => {
+        navigate('/dashboard')
+      }}>Dashboard Page</button>
+    </div>
   )
 }
 
