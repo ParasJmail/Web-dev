@@ -14,6 +14,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@storybook/addon-styling-webpack": "^1.0.0",
+    "@storybook/builder-vite": "^8.1.10",
     "@storybook/react-vite": "^8.1.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
