@@ -12,8 +12,8 @@ const app = express();
 
 const schema = zod.object({
     email: zod.string(),
-    password: z.string(),
-    country: z.literal("IN").or(z.literal("US"))
+    password: zod.string(),
+    country: zod.literal("IN").or(zod.literal("US"))
 })
 
 app.use(express.json());
