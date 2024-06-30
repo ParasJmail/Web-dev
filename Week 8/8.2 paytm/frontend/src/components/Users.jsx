@@ -31,7 +31,7 @@ export const Users = () => {
     </>
 }
 
-function User({user}) {
+export function User({user}) {
     const navigate = useNavigate();
 
     return <div className="flex justify-between">
