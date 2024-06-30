@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
+// backend/db.js
+const mongoose = require('mongoose');
 
 mongoose.connect("mongodb+srv://paras:paras1234@cluster0.lhiaiiu.mongodb.net/paras-paytm")
-    .then(() => {
-        console.log("mongodb connected")
-    })
+    .then(console.log("mongodb connected"))
 
+// Create a Schema for Users
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -32,8 +32,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
         maxLength: 50
     }
-})
-
+});
 
 const accountSchema = new mongoose.Schema({
     userId: {
@@ -47,11 +46,10 @@ const accountSchema = new mongoose.Schema({
     }
 });
 
-//create model for schema
-const User = mongoose.model('User',userSchema);
 const Account = mongoose.model('Account', accountSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = {
-    User,
-    Account,
-}
+	User,
+    Account
+};
